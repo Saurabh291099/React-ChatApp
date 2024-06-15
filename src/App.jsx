@@ -11,13 +11,25 @@ const App = () => {
 
   const selectChat = (userId) => {
     setCurrentUserId(userId);
+    resetUnreadCount(userId);
   };
 
   const markAsUnread = (userId) => {
     setChatData(prevData =>
       prevData.map(user =>
         user.userId === userId
-          ? { ...user, unreadCount: user.unreadCount + 1 }
+          ? { ...user, unreadCount: 1 }
+          : user
+      )
+    );
+  };
+
+
+  const resetUnreadCount = (userId) => {
+    setChatData(prevData =>
+      prevData.map(user =>
+        user.userId === userId
+          ? { ...user, unreadCount: 0 }
           : user
       )
     );
@@ -33,22 +45,39 @@ const App = () => {
 
 
     <>
-
-      <div class="grid grid-cols-12 gap-4 ">
-        <div class="col-span-12 md:col-span-3">
-          <Sidebar users={data} selectChat={selectChat} markAsUnread={markAsUnread} deleteChat={deleteChat} />
+      {/* <div class="relative grid grid-cols-12 gap-4 ">
+        <div class="absolute md:relative col-span-12 md:col-span-3 ">
+          <Sidebar users={chatData} selectChat={selectChat} markAsUnread={markAsUnread} deleteChat={deleteChat} resetUnreadCount={resetUnreadCount} />
         </div>
-        <div class="col-span-12 md:col-span-9">
-          {/* <Chat /> */}
-
+        <div class="md:block col-span-12 md:col-span-9 md:relative">
+          
           {currentUser ? (
             <Chat user={currentUser} />
           ) : (
-            <div className="no-chat-selected">Select a chat to view messages</div>
+            <div className="flex justify-center items-center h-[100vh]"><h1 className='text-3xl font-semibold'>Select a chat to view messages</h1></div>
+          )}
+        </div >
+
+      </div > */}
+
+      <div className="relative grid grid-cols-12 gap-4">
+        <div className={`absolute md:relative md:block col-span-12 md:col-span-3 ${currentUser ? 'hidden' : 'block'}`}>
+          <Sidebar users={chatData} selectChat={selectChat} markAsUnread={markAsUnread} deleteChat={deleteChat} resetUnreadCount={resetUnreadCount} />
+        </div>
+        <div className={`md:block col-span-12 md:col-span-9 md:relative ${currentUser ? 'block' : 'hidden'}`}>
+          {currentUser ? (
+            <Chat user={currentUser} />
+          ) : (
+            <div className="flex justify-center items-center h-[100vh]">
+              <h1 className='text-3xl font-semibold'>Select a chat to view messages</h1>
+            </div>
           )}
         </div>
-
       </div>
+
+
+
+
     </>
   )
 }
