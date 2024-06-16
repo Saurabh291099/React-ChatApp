@@ -4,7 +4,7 @@ import data from '../Data'
 const Chat = ({ user }) => {
     return (
         <>
-            
+
             <div className="grid grid-rows-12 py-0 md:py-4 px-0 md:px-2 lg:px-8 h-[100vh]">
 
                 <div className="w-full row-span-1 md:row-span-1 fixed top-0 md:relative z-10 ">
@@ -13,13 +13,15 @@ const Chat = ({ user }) => {
                         <div className='grid grid-cols-12'>
                             <div class="col-span-2 md:col-span-2 lg:col-span-1 flex justify-center items-center md:justify-center ">
                                 <div className='flex justify-end items-center md:justify-start w-12 h-12 rounded-full overflow-hidden'>
-                            
+
                                     <img className='w-full h-full object-cover' src={user.profilePictureURL} alt="profie image" />
                                 </div>
                             </div>
                             <div class="col-span-7 md:col-span-8 lg:col-span-9 ">
-                                <h4 className='text-[#000000] leading-5 text-[16px] capitalize font-semibold'>{user.name}</h4>
-                                <p className='text-[#8E8E93] leading-4 text-sm font-normal mt-1'>Click here for contact info</p>
+                                <h4 className='flex items-center gap-2 text-[#000000] leading-5 text-[16px] capitalize font-semibold'>{user.name}
+                                    <span className='w-3 h-3 rounded-full bg-[#3BA55D] text-[#fff]'></span>
+                                </h4>
+                                <p className='text-[#8E8E93] leading-4 text-sm font-normal mt-2'>Click here for contact info</p>
                             </div>
                             <div className="col-span-3 md:col-span-2 lg:col-span-2 flex justify-center items-center md:justify-end gap-2 md:gap-4 ">
                                 <button>
