@@ -24,7 +24,6 @@ const App = () => {
     );
   };
 
-
   const resetUnreadCount = (userId) => {
     setChatData(prevData =>
       prevData.map(user =>
@@ -45,26 +44,12 @@ const App = () => {
 
 
     <>
-      {/* <div class="relative grid grid-cols-12 gap-4 ">
-        <div class="absolute md:relative col-span-12 md:col-span-3 ">
-          <Sidebar users={chatData} selectChat={selectChat} markAsUnread={markAsUnread} deleteChat={deleteChat} resetUnreadCount={resetUnreadCount} />
-        </div>
-        <div class="md:block col-span-12 md:col-span-9 md:relative">
-          
-          {currentUser ? (
-            <Chat user={currentUser} />
-          ) : (
-            <div className="flex justify-center items-center h-[100vh]"><h1 className='text-3xl font-semibold'>Select a chat to view messages</h1></div>
-          )}
-        </div >
-
-      </div > */}
-
+      
       <div className="relative grid grid-cols-12 gap-4">
-        <div className={`absolute md:relative md:block col-span-12 md:col-span-3 ${currentUser ? 'hidden' : 'block'}`}>
-          <Sidebar users={chatData} selectChat={selectChat} markAsUnread={markAsUnread} deleteChat={deleteChat} resetUnreadCount={resetUnreadCount} />
+        <div className={`absolute md:relative md:block col-span-12 md:col-span-4 lg:col-span-3 ${currentUser ? 'hidden' : 'block'}`}>
+          <Sidebar users={chatData} selectChat={selectChat} markAsUnread={markAsUnread} deleteChat={deleteChat} resetUnreadCount={resetUnreadCount} currentUserId={currentUserId} />
         </div>
-        <div className={`md:block col-span-12 md:col-span-9 md:relative ${currentUser ? 'block' : 'hidden'}`}>
+        <div className={`md:block col-span-12 md:col-span-8 md:relative lg:col-span-9 ${currentUser ? 'block' : 'hidden'}`}>
           {currentUser ? (
             <Chat user={currentUser} />
           ) : (
@@ -74,9 +59,6 @@ const App = () => {
           )}
         </div>
       </div>
-
-
-
 
     </>
   )

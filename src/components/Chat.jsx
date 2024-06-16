@@ -4,73 +4,24 @@ import data from '../Data'
 const Chat = ({ user }) => {
     return (
         <>
-            {/* <div className='h-[100vh] border border-slate-500'> */}
-            {/* <div className='flex flex-col gap-2 h-16  border border-slate-700'>
+            
+            <div className="grid grid-rows-12 py-0 md:py-4 px-0 md:px-2 lg:px-8 h-[100vh]">
 
-                    <div className='h-16 p-2 bg-[#F5F7FB] rounded-md'>
-                        <div className='grid grid-cols-12 gap-2'>
-                            <div class="col-span-1 flex justify-end items-center">
-                                <img src={img} alt="profie image" />
-                            </div>
-
-                            <div class="col-span-8">
-                                <h4 className='text-[#000000] leading-5 text-[16px] capitalize font-semibold'>saurabh</h4>
-                                <p className='text-[#8E8E93] leading-4 text-sm font-normal mt-1'>hello saurabh</p>
-                            </div>
-                            <div class="col-span-2 flex justify-end items-center gap-4">
-                                <button>
-                                    <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.0007 4.22382C17.0007 2.01468 15.2099 0.223816 13.0007 0.223816H4.00073C1.79159 0.223816 0.000732422 2.01468 0.000732422 4.22382V11.7238C0.000732422 13.933 1.79159 15.7238 4.00073 15.7238H13.0007C15.2099 15.7238 17.0007 13.933 17.0007 11.7238V4.22382ZM4.00073 1.42382H13.0007C14.5471 1.42382 15.8007 2.67742 15.8007 4.22382V11.7238C15.8007 13.2702 14.5471 14.5238 13.0007 14.5238H4.00073C2.45434 14.5238 1.20073 13.2702 1.20073 11.7238V4.22382C1.20073 2.67742 2.45434 1.42382 4.00073 1.42382ZM24.2934 2.14497C24.4278 2.31978 24.5007 2.53413 24.5007 2.75468V12.9343C24.5007 13.4865 24.053 13.9343 23.5007 13.9343C23.3157 13.9343 23.1342 13.8829 22.9766 13.7859L18.9525 11.3095C18.361 10.9455 18.0007 10.3007 18.0007 9.60623V6.70862C18.0007 6.08768 18.2891 5.50196 18.7813 5.12337L22.891 1.96205C23.3288 1.62532 23.9566 1.70721 24.2934 2.14497ZM19.513 6.07452L23.3007 3.16085V12.5763L19.5815 10.2876C19.3449 10.142 19.2007 9.88403 19.2007 9.60623V6.70862C19.2007 6.46024 19.3161 6.22596 19.513 6.07452Z" fill="#007AFF" />
-                                    </svg>
-
-                                </button>
-                                <button>
-                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.68028 4.93051L6.87416 1.87796C6.06982 0.518501 4.31571 0.0684999 2.95626 0.872851C2.71318 1.01668 2.49274 1.19572 2.30212 1.40414C0.945494 2.88751 0.338215 4.29987 0.537902 5.6391C0.94713 8.38365 2.87669 11.5185 6.30482 15.0775L6.60254 15.3716L6.89707 15.6697L6.90287 15.6654C10.4561 19.0979 13.5909 21.0274 16.3354 21.4366C17.6747 21.6363 19.087 21.0291 20.5704 19.6724C20.7788 19.4818 20.9579 19.2614 21.1017 19.0183C21.906 17.6588 21.456 15.9047 20.0966 15.1004L17.044 13.2943L16.8922 13.2117C16.1736 12.8535 15.3183 12.8774 14.6174 13.2847L13.6662 13.8374L13.5557 13.8947C13.0692 14.1181 12.4887 14.0186 12.104 13.6339L8.34067 9.87057L8.25696 9.77844C7.91634 9.36532 7.86384 8.77875 8.13719 8.30831L8.68987 7.35715C9.12622 6.60618 9.12255 5.67801 8.68028 4.93051ZM19.7606 18.7869C18.5056 19.9347 17.4296 20.3865 16.5124 20.2498C14.1553 19.8983 11.3405 18.2112 8.08688 15.137L7.52665 14.5995L7.14818 14.2238C3.88348 10.834 2.08853 7.90168 1.72478 5.46213C1.58803 4.54499 2.03988 3.46898 3.18764 2.214C3.29828 2.09302 3.42623 1.9891 3.56732 1.90562C4.31255 1.46468 5.26211 1.67317 5.75861 2.36242L5.8414 2.48902L7.64751 5.54157C7.86854 5.91513 7.87037 6.37898 7.6523 6.75427L7.09963 7.70543C6.57511 8.60813 6.66991 9.73992 7.33109 10.5418L7.45251 10.6775L11.2555 14.4824C11.9937 15.2206 13.112 15.4189 14.0565 14.9852L14.2188 14.9026L15.2203 14.3222C15.5694 14.1194 15.9968 14.1062 16.3569 14.2857L16.4705 14.3483L19.4855 16.1332C20.2746 16.6 20.5358 17.6182 20.0689 18.4072C19.9855 18.5483 19.8815 18.6763 19.7606 18.7869Z" fill="#007AFF" />
-                                    </svg>
-
-                                </button>
-                                <button>
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11.5 4.5C11.5 5.32843 10.8284 6 10 6C9.17157 6 8.5 5.32843 8.5 4.5C8.5 3.67157 9.17157 3 10 3C10.8284 3 11.5 3.67157 11.5 4.5Z" fill="#007AFF" />
-                                        <path d="M11.5 10C11.5 10.8284 10.8284 11.5 10 11.5C9.17157 11.5 8.5 10.8284 8.5 10C8.5 9.17157 9.17157 8.5 10 8.5C10.8284 8.5 11.5 9.17157 11.5 10Z" fill="#007AFF" />
-                                        <path d="M11.5 15.5C11.5 16.3284 10.8284 17 10 17C9.17157 17 8.5 16.3284 8.5 15.5C8.5 14.6716 9.17157 14 10 14C10.8284 14 11.5 14.6716 11.5 15.5Z" fill="#007AFF" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='h-[]'>
-                    chat
-                </div>
-                <div className='h-12 p-2 border border-slate-500'>
-                    <input className='border border-slate-700' type="text" />
-                </div> */}
-            {/* </div> */}
-            {/* {chatData.map((data, index) => {
-                return (
-                    <></>
-                )
-            })} */}
-            <div className="grid grid-rows-12 py-0 md:py-4 px-0 md:px-8 h-[100vh]">
-
-                <div className="row-span-1 md:row-span-1 fixed top-0 md:relative z-10 ">
+                <div className="w-full row-span-1 md:row-span-1 fixed top-0 md:relative z-10 ">
                     {/* <div className='flex flex-col gap-2'> */}
-                    <div className='py-2 px-1 md:p-2 bg-[#F5F7FB] rounded-md'>
-                        <div className='grid grid-cols-12 gap-2'>
-                            <div class="col-span-2 md:col-span-1 flex justify-end items-center md:justify-center">
+                    <div className=' py-2 px-1 md:p-2 bg-[#F5F7FB] rounded-md'>
+                        <div className='grid grid-cols-12'>
+                            <div class="col-span-2 md:col-span-2 lg:col-span-1 flex justify-center items-center md:justify-center ">
                                 <div className='flex justify-end items-center md:justify-start w-12 h-12 rounded-full overflow-hidden'>
                             
                                     <img className='w-full h-full object-cover' src={user.profilePictureURL} alt="profie image" />
                                 </div>
                             </div>
-                            <div class="col-span-8 md:col-span-10">
+                            <div class="col-span-7 md:col-span-8 lg:col-span-9 ">
                                 <h4 className='text-[#000000] leading-5 text-[16px] capitalize font-semibold'>{user.name}</h4>
                                 <p className='text-[#8E8E93] leading-4 text-sm font-normal mt-1'>Click here for contact info</p>
                             </div>
-                            <div className="col-span-1 md:col-span-1 flex justify-center items-center md:justify-end gap-2 md:gap-4">
+                            <div className="col-span-3 md:col-span-2 lg:col-span-2 flex justify-center items-center md:justify-end gap-2 md:gap-4 ">
                                 <button>
                                     <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M17.0007 4.22382C17.0007 2.01468 15.2099 0.223816 13.0007 0.223816H4.00073C1.79159 0.223816 0.000732422 2.01468 0.000732422 4.22382V11.7238C0.000732422 13.933 1.79159 15.7238 4.00073 15.7238H13.0007C15.2099 15.7238 17.0007 13.933 17.0007 11.7238V4.22382ZM4.00073 1.42382H13.0007C14.5471 1.42382 15.8007 2.67742 15.8007 4.22382V11.7238C15.8007 13.2702 14.5471 14.5238 13.0007 14.5238H4.00073C2.45434 14.5238 1.20073 13.2702 1.20073 11.7238V4.22382C1.20073 2.67742 2.45434 1.42382 4.00073 1.42382ZM24.2934 2.14497C24.4278 2.31978 24.5007 2.53413 24.5007 2.75468V12.9343C24.5007 13.4865 24.053 13.9343 23.5007 13.9343C23.3157 13.9343 23.1342 13.8829 22.9766 13.7859L18.9525 11.3095C18.361 10.9455 18.0007 10.3007 18.0007 9.60623V6.70862C18.0007 6.08768 18.2891 5.50196 18.7813 5.12337L22.891 1.96205C23.3288 1.62532 23.9566 1.70721 24.2934 2.14497ZM19.513 6.07452L23.3007 3.16085V12.5763L19.5815 10.2876C19.3449 10.142 19.2007 9.88403 19.2007 9.60623V6.70862C19.2007 6.46024 19.3161 6.22596 19.513 6.07452Z" fill="#007AFF" />
